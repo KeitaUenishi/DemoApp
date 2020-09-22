@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- 詳細画面
+	 layout:decorate="~{commons/layout}"でレイアウトが使用される。
+	 <div layout:fragment="contents"></div>で囲まれた部分が、レイアウト内に表示される。
+	 <div th:include="users/form :: form_contents"></div>に共通フォームが表示される。-->
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div layout:fragment="contents">
+	<div class="row">
+		<div class="col-sm-5">
+			<div class="page-header">
+				<div>
+					<h1>ユーザー詳細</h1>
+				</div>
+					<table class="table table-bordered table-hover">
+						<tr>
+							<th class="active col-sm-3">ユーザー名</th>
+							<td>
+							<div class="form-group" th:object="${user}">
+								<label class="media-body" th:text="*{name}">
+								</label>
+							</div>
+							</td>
+						</tr>
+					</table>
+			<form th:action="@{/users}" th:method="get">
+				<button class="btn btn-primary btn-lg pull-right" type="submit">一覧</button>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
