@@ -44,7 +44,7 @@ public class UserController {
 	/**
 	 * 詳細画面の表示
 	 */
-	@GetMapping
+	@GetMapping("{id}")
 	public String getUser(@PathVariable int id, Model model) {
 		User user = userMapper.select(id);
 		model.addAttribute("user", user);
